@@ -71,7 +71,7 @@
                 <!-- Conteneur pour l'animation Lottie -->
                 <div id="lottie-animation" class="w-full h-32 md:h-40 mx-auto"></div>
                 <div id="lottie-animation2" class="w-full h-32 md:h-40 mx-auto"></div>
-                <div id="lottie-animation4" class="w-full h-32 md:h-40 mx-auto hidden"></div>
+                <div id="lottie-animation4" class="absolute w-24 h-24 hidden pointer-events-none"></div>
 
             </aside>
         </div>
@@ -97,15 +97,27 @@
             });
 
             parts.forEach((part) => {
-                part.addEventListener("click", function () {
+                part.addEventListener("click", function (event) {
                     if (selectedPart) selectedPart.classList.remove("selected");
                     selectedPart = this;
                     selectedPart.classList.add("selected");
                     const name = this.id.replace("part-", "");
                     selectedPartName.textContent = name.charAt(0).toUpperCase() + name.slice(1);
 
-                    // Affiche et joue l'animation Lottie4
+                    // Récupérer la position du clic par rapport à l'image
+                    const boundingBox = part.getBoundingClientRect();
+                    const containerBox = document.getElementById("conteneur").getBoundingClientRect();
+
+                    // Calcul des coordonnées pour centrer l’animation sur la partie cliquée
+                    const left = boundingBox.left - containerBox.left + boundingBox.width / 2 - 50; // Ajuste pour centrer
+                    const top = boundingBox.top - containerBox.top + boundingBox.height / 2 - 50; // Ajuste pour centrer
+
+                    // Appliquer les nouvelles positions
+                    lottieContainer4.style.left = `${left}px`;
+                    lottieContainer4.style.top = `${top}px`;
                     lottieContainer4.classList.remove("hidden");
+
+                    // Relancer l’animation
                     lottie4.goToAndPlay(0, true);
                 });
             });
@@ -134,6 +146,7 @@
                 path: 'lottie2.json'
             });
         });
+
 
     </script>
 </body>
