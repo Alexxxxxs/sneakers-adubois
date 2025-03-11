@@ -71,6 +71,8 @@
                 <!-- Conteneur pour l'animation Lottie -->
                 <div id="lottie-animation" class="w-full h-32 md:h-40 mx-auto"></div>
                 <div id="lottie-animation2" class="w-full h-32 md:h-40 mx-auto"></div>
+                <div id="lottie-animation4" class="w-full h-32 md:h-40 mx-auto hidden"></div>
+
             </aside>
         </div>
     </main>
@@ -82,14 +84,29 @@
             const selectedPartName = document.getElementById("selected-part-name");
             const parts = document.querySelectorAll("#produit-svg path");
 
+            // Sélectionne le conteneur de l'animation Lottie4
+            const lottieContainer4 = document.getElementById("lottie-animation4");
+
+            // Charge l'animation Lottie4 mais ne la joue pas encore
+            const lottie4 = lottie.loadAnimation({
+                container: lottieContainer4,
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'lottie4.json' // Chemin vers ton fichier JSON
+            });
+
             parts.forEach((part) => {
                 part.addEventListener("click", function () {
                     if (selectedPart) selectedPart.classList.remove("selected");
                     selectedPart = this;
                     selectedPart.classList.add("selected");
                     const name = this.id.replace("part-", "");
-                    selectedPartName.textContent =
-                        name.charAt(0).toUpperCase() + name.slice(1);
+                    selectedPartName.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+
+                    // Affiche et joue l'animation Lottie4
+                    lottieContainer4.classList.remove("hidden");
+                    lottie4.goToAndPlay(0, true);
                 });
             });
 
@@ -106,18 +123,18 @@
                 renderer: 'svg',
                 loop: true,
                 autoplay: true,
-                path: 'lottie1.json' // chemin vers votre 1er fichier JSON
+                path: 'lottie1.json'
             });
 
-            // Charger la deuxième animation
             lottie.loadAnimation({
                 container: document.getElementById('lottie-animation2'),
                 renderer: 'svg',
                 loop: true,
                 autoplay: true,
-                path: 'lottie2.json' // chemin vers votre 2e fichier JSON
+                path: 'lottie2.json'
             });
         });
+
     </script>
 </body>
 
