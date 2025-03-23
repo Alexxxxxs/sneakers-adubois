@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKSY - Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-black text-white">
+    <nav class="fixed top-0 w-full bg-black bg-opacity-80 py-4 px-8 flex justify-between items-center z-50">
+        <a href="index.html"><img src="assets/logo_blanc.png" alt="BKSY Logo" class="h-12"></a>
+        <div>
+            <a href="artist.html" class="text-white mx-4 hover:text-red-500">L'Artiste</a>
+            <a href="shop.html" class="text-white mx-4 hover:text-red-500">Shop</a>
+            <a href="contact.html" class="text-white mx-4 hover:text-red-500">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="h-screen flex items-center justify-center">
+        <img src="assets/logo_blanc.png" alt="BKSY Logo" class="max-w-[80%] md:max-w-[50%] logo-animation">
+    </section>
+
+    <section id="presentation"
+        class="h-screen flex flex-col items-center justify-center text-center px-6 opacity-0 transition-opacity duration-1000">
+        <h1 class="text-4xl font-bold mb-4">Bienvenue chez BKSY</h1>
+        <p class="text-lg max-w-2xl">
+            BKSY est une marque qui fusionne l’art urbain et la mode contemporaine. Nos créations incarnent l’esprit du
+            graffiti et du streetwear.
+        </p>
+    </section>
+
+    <script src="js/script.js" defer></script>
+</body>
+
+</html>

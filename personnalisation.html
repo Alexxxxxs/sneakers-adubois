@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnalisation - BKSY</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white">
+    <nav class="fixed top-0 w-full bg-black bg-opacity-80 py-4 px-8 flex justify-between items-center z-50">
+        <a href="index.html"><img src="assets/logo_blanc.png" alt="BKSY Logo" class="h-12"></a>
+        <div>
+            <a href="artist.html" class="text-white mx-4 hover:text-red-500">L'Artiste</a>
+            <a href="shop.html" class="text-red-500 mx-4">Shop</a>
+            <a href="contact.html" class="text-white mx-4 hover:text-red-500">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Section Personnalisation -->
+    <section class="h-screen flex items-center justify-start px-[10%] fade-in">
+
+        <!-- Conteneur principal -->
+        <div class="flex items-center justify-center w-full max-w-[1400px] gap-x-12">
+
+            <!-- Image agrandie -->
+            <div class="flex justify-center">
+                <img id="product-image" src="assets/default.png" alt="Produit personnalisé"
+                    class="w-[1300px] h-auto rounded-lg shadow-lg">
+            </div>
+
+            <!-- Panneau de personnalisation -->
+            <div class="bg-gray-800 p-8 rounded-lg w-full max-w-md flex flex-col items-center fade-in">
+                <h1 class="text-3xl font-bold mb-6 text-center">Personnalisation</h1>
+                <h2 id="product-name" class="text-xl font-semibold mb-4 text-center"></h2>
+                <span id="product-price" class="text-red-500 font-bold text-lg block text-center"></span>
+
+                <label class="block text-left mt-4 mb-2 w-full">Couleur du produit :</label>
+                <select id="product-color" class="w-full p-2 rounded bg-gray-700 text-white">
+                    <option>Blanc</option>
+                    <option>Noir</option>
+                    <option>Rouge</option>
+                    <option>Bleu</option>
+                </select>
+
+                <button id="validate-button" class="mt-6 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded w-full">
+                    Valider la Personnalisation
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JS -->
+    <script src="js/perso.js" defer></script>
+</body>
+
+</html>

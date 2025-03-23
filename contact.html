@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKSY - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-white">
+    <nav class="fixed top-0 w-full bg-black bg-opacity-80 py-4 px-8 flex justify-between items-center z-50">
+        <a href="index.html"><img src="assets/logo_blanc.png" alt="BKSY Logo" class="h-12"></a>
+        <div>
+            <a href="artist.html" class="text-white mx-4 hover:text-red-500">L'Artiste</a>
+            <a href="shop.html" class="text-white mx-4 hover:text-red-500">Shop</a>
+            <a href="contact.html" class="text-red-500 mx-4">Contact</a>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col items-center justify-center text-center px-6">
+        <h1 class="text-4xl font-bold mb-4">Contactez-nous</h1>
+        <p class="text-lg max-w-2xl mb-6">
+            Une question, une collaboration ou une demande spéciale ? <br> Envoyez-nous un message !
+        </p>
+
+        <div class="border border-white p-6 rounded-lg max-w-md w-full">
+            <form id="contactForm" class="flex flex-col">
+                <input type="text" id="name" placeholder="Nom" class="w-full p-2 mb-4 bg-gray-800 text-white border border-gray-600 rounded" required>
+                <input type="email" id="email" placeholder="Email" class="w-full p-2 mb-4 bg-gray-800 text-white border border-gray-600 rounded" required>
+                <textarea id="message" placeholder="Votre message" class="w-full p-2 mb-4 bg-gray-800 text-white border border-gray-600 rounded" required></textarea>
+                <button type="submit" id="submitButton" class="bg-red-700 px-6 py-2 rounded text-white font-bold hover:bg-red-800">Envoyer</button>
+            </form>
+            <p id="successMessage" class="text-green-500 mt-4 hidden">✅ Message envoyé avec succès !</p>
+        </div>
+    </section>
+
+    <script src="js/script_C.js" defer></script>
+</body>
+</html>

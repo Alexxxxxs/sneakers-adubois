@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKSY - Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-black text-white">
+    <nav class="fixed top-0 w-full bg-black bg-opacity-80 py-4 px-8 flex justify-between items-center z-50">
+        <a href="index.html"><img src="assets/logo_blanc.png" alt="BKSY Logo" class="h-12"></a>
+        <div>
+            <a href="artist.html" class="text-white mx-4 hover:text-red-500">L'Artiste</a>
+            <a href="shop.html" class="text-red-500 mx-4">Shop</a>
+            <a href="contact.html" class="text-white mx-4 hover:text-red-500">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Section Boutique -->
+    <section class="min-h-screen pt-24 text-center fade-in">
+        <h1 class="text-4xl font-bold mb-6 fade-in">Découvrez Nos Produits</h1>
+        <p class="text-lg max-w-2xl mx-auto mb-10 fade-in">
+            Plongez dans l’univers de BKSY avec des sneakers inspirées du street art.
+        </p>
+
+        <!-- Grille de Produits -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
+
+            <!-- Little Girl -->
+            <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition fade-in">
+                <img src="assets/sneakers_2.png" alt="Little Girl" class="w-full h-64 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold fade-in">Little Girl</h2>
+                <p class="text-gray-400 mb-4 fade-in">Une sneaker unique au design street art percutant.</p>
+
+                <div class="flex flex-col items-center">
+                    <span class="text-red-500 font-bold text-lg fade-in">129,99€</span>
+                    <a href="personnalisation.html?nom=Little Girl&prix=129,99€&image=assets/sneakers_2.png"
+                        class="mt-4 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded fade-in mx-auto text-center">
+                        Personnaliser
+                    </a>
+                </div>
+            </div>
+
+            <!-- Double Heart -->
+            <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition fade-in">
+                <img src="assets/sneakers_3.png" alt="Double Heart" class="w-full h-64 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold fade-in">Double Heart</h2>
+                <p class="text-gray-400 mb-4 fade-in">Un modèle audacieux avec une touche artistique urbaine.</p>
+
+                <div class="flex flex-col items-center">
+                    <span class="text-red-500 font-bold text-lg fade-in">139,99€</span>
+                    <a href="personnalisation.html?nom=Double Heart&prix=139,99€&image=assets/sneakers_3.png"
+                        class="mt-4 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded fade-in mx-auto text-center">
+                        Personnaliser
+                    </a>
+                </div>
+            </div>
+
+            <!-- Rat -->
+            <div class="bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition fade-in">
+                <img src="assets/sneakers_1.png" alt="Rat" class="w-full h-64 object-cover rounded-lg mb-4">
+                <h2 class="text-xl font-semibold fade-in">Rat</h2>
+                <p class="text-gray-400 mb-4 fade-in">Inspirée du street art rebelle, cette sneaker est iconique.</p>
+
+                <div class="flex flex-col items-center">
+                    <span class="text-red-500 font-bold text-lg fade-in">149,99€</span>
+                    <a href="personnalisation.html?nom=Rat&prix=149,99€&image=assets/sneakers_1.png"
+                        class="mt-4 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded fade-in mx-auto text-center">
+                        Personnaliser
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</body>
+
+</html>
