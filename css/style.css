@@ -3,12 +3,12 @@
         opacity: 0;
         transform: translateY(200px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 
 @keyframes fadeIn {
     from {
@@ -27,7 +27,6 @@
     opacity: 0;
 }
 
-
 .logo-animation {
     animation: slideUp 1000ms ease-out forwards;
 }
@@ -45,4 +44,54 @@ html {
 /* Désactive le scroll horizontal (au cas où) */
 body {
     overflow-x: hidden;
+}
+
+/* Conteneur général */
+#product-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    /* Ajustable selon les besoins */
+    height: auto;
+    pointer-events: none;
+    display: none;
+}
+
+/* Visibilité forcée après injection */
+#product-overlay.loaded {
+    display: block;
+}
+
+/* Personnalisation spécifique pour chaque SVG */
+
+/* SVG "Little Girl" */
+.svg-little-girl {
+    width: 82%;
+    opacity: 0.8;
+    left: 50%;
+    mix-blend-mode: multiply;
+    position: absolute;
+    transform: translate(-50%, -39%);
+}
+
+/* SVG "Double Heart" */
+.svg-double-heart {
+    width: 34%;
+    opacity: 0.8;
+    left: 52%;
+    mix-blend-mode: multiply;
+    position: absolute;
+    transform: translate(-50%, -58%);
+}
+
+/* SVG "Rat" */
+.svg-rat {
+    width: 55%;
+    opacity: 0.8;
+    left: 50%;
+    mix-blend-mode: multiply;
+    position: absolute;
+    transform: translate(-40%, -63%);
 }

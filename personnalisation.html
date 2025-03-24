@@ -29,11 +29,18 @@
         <!-- Conteneur principal -->
         <div class="flex items-center justify-center w-full max-w-[1400px] gap-x-12">
 
-            <!-- Image agrandie -->
-            <div class="flex justify-center">
+            <!-- Chaussure -->
+            <!-- Conteneur principal -->
+            <div class="relative w-[800px] h-auto mx-auto">
+                <!-- Image de base de la chaussure -->
                 <img id="product-image" src="assets/default.png" alt="Produit personnalisé"
-                    class="w-[1300px] h-auto rounded-lg shadow-lg">
+                    class="w-full h-auto rounded-lg shadow-lg">
+
+                <!-- Conteneur où le SVG sera injecté dynamiquement -->
+                <div id="product-overlay" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
             </div>
+
+
 
             <!-- Panneau de personnalisation -->
             <div class="bg-gray-800 p-8 rounded-lg w-full max-w-md flex flex-col items-center fade-in">
@@ -43,13 +50,15 @@
 
                 <label class="block text-left mt-4 mb-2 w-full">Couleur du produit :</label>
                 <select id="product-color" class="w-full p-2 rounded bg-gray-700 text-white">
-                    <option>Blanc</option>
+                    <option>Pas d'ajout</option>
                     <option>Noir</option>
                     <option>Rouge</option>
                     <option>Bleu</option>
                 </select>
 
-                <button id="validate-button" class="mt-6 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded w-full">
+
+                <button id="validate-button"
+                    class="mt-6 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded w-full">
                     Valider la Personnalisation
                 </button>
             </div>
@@ -59,7 +68,7 @@
     </section>
 
     <!-- JS -->
-    <script src="js/perso.js" defer></script>
+    <script src="js/script_P.js" defer></script>
 </body>
 
 </html>
