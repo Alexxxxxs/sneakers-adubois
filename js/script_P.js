@@ -1,37 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const overlayContainer = document.getElementById("product-overlay");
-    const colorSelector = document.getElementById("product-color");
-
-    function getColorValue(color) {
-        const colors = {
-            "noir": "#000000",
-            "rouge": "#ff0000",
-            "bleu": "#0000ff"
-        };
-        return colors[color.toLowerCase()] || null;
-    }
-
-    function applyColor() {
-        const colorName = colorSelector.value;
-        const colorValue = getColorValue(colorName);
-        const svgElement = overlayContainer.querySelector("svg");
-
-        if (colorName === "Pas d'ajout") {
-            overlayContainer.style.display = "none";
-        } else {
-            overlayContainer.style.display = "block";
-            if (svgElement) {
-                const elementsToColor = svgElement.querySelectorAll(".color-change");
-                if (elementsToColor.length > 0) {
-                    elementsToColor.forEach(element => {
-                        element.setAttribute("fill", colorValue);
-                    });
-                } else {
-                    console.warn("Aucun élément avec la classe 'color-change' trouvé.");
-                }
-            }
-        }
-    }
+    const colorSelect = document.getElementById("product-color");
 
     function loadSVG(svgPath, productName) {
         fetch(svgPath)
@@ -42,19 +11,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const svgElement = overlayContainer.querySelector("svg");
                 if (svgElement) {
-                    // Déterminer la classe CSS à appliquer
-                    const className = `svg-${productName.toLowerCase().replace(/\s+/g, "-")}`;
-                    svgElement.classList.add(className);
-
-                    // Ajouter des attributs CSS dynamiques si besoin (ex: mix-blend-mode ou position)
-                    console.log(`SVG chargé avec la classe : ${className}`);
+                    svgElement.id = "custom-svg";
+                    console.log("SVG chargé avec succès !");
                 } else {
                     console.error("Erreur : le SVG n'a pas pu être chargé.");
                 }
-
-                applyColor();
             })
             .catch(error => console.error("Erreur lors du chargement du SVG :", error));
+    }
+
+    function changeSVGColor(color) {
+        const svg = document.getElementById("custom-svg");
+        if (svg) {
+            const elementsToColor = svg.querySelectorAll(".color-change");
+
+            if (elementsToColor.length > 0) {
+                elementsToColor.forEach(element => {
+                    element.style.fill = color; // Appliquer la couleur via le style
+                    element.setAttribute("fill", color); // Assurer que le changement de couleur est appliqué
+                });
+            } else {
+                console.warn("Aucun élément avec la classe 'color-change' trouvé dans le SVG.");
+            }
+        } else {
+            console.error("Le SVG n'est pas encore chargé.");
+        }
     }
 
     function getQueryParams() {
@@ -78,5 +59,27 @@ document.addEventListener("DOMContentLoaded", function () {
         overlayContainer.style.display = "none";
     }
 
-    colorSelector.addEventListener("change", applyColor);
+    const observer = new MutationObserver((mutations, obs) => {
+        if (document.getElementById("custom-svg")) {
+            colorSelect.addEventListener("change", function () {
+                let selectedColor = "none"; // Valeur par défaut (transparent)
+                switch (colorSelect.value.toLowerCase()) {
+                    case "noir":
+                        selectedColor = "#000000";
+                        break;
+                    case "rouge":
+                        selectedColor = "#FF0000";
+                        break;
+                    case "bleu":
+                        selectedColor = "#0000FF";
+                        break;
+                }
+                changeSVGColor(selectedColor);
+            });
+            obs.disconnect(); // Arrêter l'observation une fois que le SVG est chargé
+        }
+    });
+
+    observer.observe(overlayContainer, { childList: true, subtree: true });
+
 });

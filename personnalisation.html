@@ -30,20 +30,14 @@
         <div class="flex items-center justify-center w-full max-w-[1400px] gap-x-12">
 
             <!-- Chaussure -->
-            <!-- Conteneur principal -->
             <div class="relative w-[800px] h-auto mx-auto">
-                <!-- Image de base de la chaussure -->
                 <img id="product-image" src="assets/default.png" alt="Produit personnalisé"
                     class="w-full h-auto rounded-lg shadow-lg">
-
-                <!-- Conteneur où le SVG sera injecté dynamiquement -->
                 <div id="product-overlay" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
             </div>
 
-
-
             <!-- Panneau de personnalisation -->
-            <div class="bg-gray-800 p-8 rounded-lg w-full max-w-md flex flex-col items-center fade-in">
+            <div class="bg-gray-800 p-8 rounded-lg w-full max-w-md flex flex-col items-center">
                 <h1 class="text-3xl font-bold mb-6 text-center">Personnalisation</h1>
                 <h2 id="product-name" class="text-xl font-semibold mb-4 text-center"></h2>
                 <span id="product-price" class="text-red-500 font-bold text-lg block text-center"></span>
@@ -55,7 +49,6 @@
                     <option>Rouge</option>
                     <option>Bleu</option>
                 </select>
-
 
                 <button id="validate-button"
                     class="mt-6 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded w-full">

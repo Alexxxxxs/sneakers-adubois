@@ -46,52 +46,18 @@ body {
     overflow-x: hidden;
 }
 
-/* Conteneur général */
-#product-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    /* Ajustable selon les besoins */
-    height: auto;
-    pointer-events: none;
-    display: none;
-}
-
-/* Visibilité forcée après injection */
-#product-overlay.loaded {
-    display: block;
-}
-
-/* Personnalisation spécifique pour chaque SVG */
-
-/* SVG "Little Girl" */
-.svg-little-girl {
-    width: 82%;
-    opacity: 0.8;
-    left: 50%;
+/* Appliquer le mode de fusion Multiply */
+#product-overlay svg .color-change {
     mix-blend-mode: multiply;
-    position: absolute;
-    transform: translate(-50%, -39%);
+    fill: none; /* Transparence par défaut */
 }
 
-/* SVG "Double Heart" */
-.svg-double-heart {
-    width: 34%;
-    opacity: 0.8;
-    left: 52%;
-    mix-blend-mode: multiply;
-    position: absolute;
-    transform: translate(-50%, -58%);
+/* Optionnel: vous pouvez aussi ajouter une règle pour les autres éléments si nécessaire */
+#product-overlay svg {
+    opacity: 0; /* Transparence par défaut pour l'élément SVG */
+    transition: opacity 1s ease-in-out; /* Effet de transition pour l'apparition */
 }
 
-/* SVG "Rat" */
-.svg-rat {
-    width: 55%;
-    opacity: 0.8;
-    left: 50%;
-    mix-blend-mode: multiply;
-    position: absolute;
-    transform: translate(-40%, -63%);
+#product-overlay.loaded svg {
+    opacity: 1; /* Rendre le SVG visible après son chargement */
 }
