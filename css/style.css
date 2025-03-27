@@ -52,7 +52,7 @@ body {
     fill: none; /* Transparence par défaut */
 }
 
-/* Optionnel: vous pouvez aussi ajouter une règle pour les autres éléments si nécessaire */
+
 #product-overlay svg {
     opacity: 0; /* Transparence par défaut pour l'élément SVG */
     transition: opacity 1s ease-in-out; /* Effet de transition pour l'apparition */
