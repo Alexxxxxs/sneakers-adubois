@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const overlayContainer = document.getElementById("product-overlay");
-    const colorSelect = document.getElementById("product-color");
+    const colorPicker = document.getElementById("color-picker");
+    const colorValueDisplay = document.getElementById("color-value");
 
     function loadSVG(svgPath, productName) {
         fetch(svgPath)
@@ -27,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (elementsToColor.length > 0) {
                 elementsToColor.forEach(element => {
-                    element.style.fill = color; // Appliquer la couleur via le style
-                    element.setAttribute("fill", color); // Assurer que le changement de couleur est appliqué
+                    element.style.fill = color;
+                    element.setAttribute("fill", color);
                 });
             } else {
                 console.warn("Aucun élément avec la classe 'color-change' trouvé dans le SVG.");
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Le SVG n'est pas encore chargé.");
         }
     }
+
 
     function getQueryParams() {
         const params = new URLSearchParams(window.location.search);
@@ -60,26 +62,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const observer = new MutationObserver((mutations, obs) => {
-        if (document.getElementById("custom-svg")) {
-            colorSelect.addEventListener("change", function () {
-                let selectedColor = "none"; // Valeur par défaut (transparent)
-                switch (colorSelect.value.toLowerCase()) {
-                    case "noir":
-                        selectedColor = "#000000";
-                        break;
-                    case "rouge":
-                        selectedColor = "#FF0000";
-                        break;
-                    case "bleu":
-                        selectedColor = "#0000FF";
-                        break;
-                }
+        const svgLoaded = document.getElementById("custom-svg");
+        if (svgLoaded) {
+            colorPicker.addEventListener("input", function () {
+                const selectedColor = colorPicker.value;
                 changeSVGColor(selectedColor);
+                if (colorValueDisplay) {
+                    colorValueDisplay.textContent = selectedColor;
+                }
             });
-            obs.disconnect(); // Arrêter l'observation une fois que le SVG est chargé
+
+            // Initialisation : appliquer la couleur par défaut
+            changeSVGColor(colorPicker.value);
+            if (colorValueDisplay) {
+                colorValueDisplay.textContent = colorPicker.value;
+            }
+
+            obs.disconnect();
         }
     });
 
     observer.observe(overlayContainer, { childList: true, subtree: true });
-
 });
+
+
+

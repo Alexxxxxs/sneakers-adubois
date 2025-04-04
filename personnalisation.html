@@ -42,18 +42,23 @@
                 <h2 id="product-name" class="text-xl font-semibold mb-4 text-center"></h2>
                 <span id="product-price" class="text-red-500 font-bold text-lg block text-center"></span>
 
-                <label class="block text-left mt-4 mb-2 w-full">Couleur du produit :</label>
-                <select id="product-color" class="w-full p-2 rounded bg-gray-700 text-white">
-                    <option>Pas d'ajout</option>
-                    <option>Noir</option>
-                    <option>Rouge</option>
-                    <option>Bleu</option>
-                </select>
+                <div class="w-full mt-6">
+                    <label for="color-picker" class="block text-sm font-medium text-white mb-2">Choisissez une couleur
+                        :</label>
+                    <div class="flex items-center gap-4">
+                        <input type="color" id="color-picker" value="#000000"
+                            class="w-12 h-12 border-2 border-gray-600 rounded-md cursor-pointer transition duration-200 hover:scale-105">
+                        <span id="color-value" class="text-sm text-gray-300">#000000</span>
+                    </div>
+                </div>
+
 
                 <button id="validate-button"
-                    class="mt-6 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded w-full">
-                    Valider la Personnalisation
+                    class="mt-6 bg-red-700 text-white py-2 px-4 rounded w-full cursor-not-allowed opacity-50" disabled>
+                    Acheter
                 </button>
+
+
             </div>
 
         </div>
